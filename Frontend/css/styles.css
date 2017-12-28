@@ -95,9 +95,10 @@ label {
 	font-family: 'Josefin Sans', sans-serif;
 }
 
-.nav-items {
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.nav-items a{
+	font-family: 'Montserrat' ,sans-serif;
 	cursor: pointer;
+	color: rgb(77, 71, 67)
 }
 
 .login-form {
@@ -124,7 +125,7 @@ label {
 }
 
 .SignUpHeadings {
-	font-family: 'Muli', sans-serif
+	font-family: 'Muli', sans-serif;
 }
 
 .h1,
@@ -157,7 +158,6 @@ h1 {
 	width: 80%;
 	padding: 5%;
 	margin-top: 75px;
-	-webkit-animation-duration: 5s;
 }
 
 .companySignup {
@@ -220,4 +220,16 @@ label {
 .editCompany{
 	margin-right: 30px;
 	margin-bottom: 23px;
+}
+.homePage{
+	font-family: 'Dancing Script', cursive;
+	font-size: 125px;
+	color:white;
+	margin-top: 350px;
+	margin-left: 144px;
+}
+.homeDes{
+	font-family: Josefin Sans, sans-serif;
+	font-size: 26px;
+	margin-left: 12px;
 }
