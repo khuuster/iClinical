@@ -3,8 +3,8 @@ var app = angular.module("iClinical", ['ui.router']);
 app.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/")
   $stateProvider
-    .state("home", {
-      url: "/",
+    .state("login", {
+      url: "/login",
       templateUrl: "./views/login.html",
       controller: "loginController"
     })

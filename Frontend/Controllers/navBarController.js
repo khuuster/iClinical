@@ -14,7 +14,7 @@ app.controller("navBarController", function ($scope, $state, $stateParams, userS
     }
     userService.setCurrentUser(0);
     companyService.setCurrentCompany(0);
-    $state.go("home");
+    $state.go("login");
   }
 
   

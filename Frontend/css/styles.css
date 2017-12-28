@@ -95,9 +95,10 @@ label {
 	font-family: 'Josefin Sans', sans-serif;
 }
 
-.nav-items {
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.nav-items a{
+	font-family: 'Montserrat' ,sans-serif;
 	cursor: pointer;
+	color: rgb(112, 80, 80)
 }
 
 .login-form {
@@ -157,7 +158,6 @@ h1 {
 	width: 80%;
 	padding: 5%;
 	margin-top: 75px;
-	-webkit-animation-duration: 5s;
 }
 
 .companySignup {
