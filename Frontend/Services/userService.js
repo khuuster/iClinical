@@ -29,6 +29,7 @@ app.service("userService", function ($http) {
   this.currentUserReturn = function(){
     return _currentUserId;
   }
+  
   this.getCurrentUserInfo = function(){
     console.log(_currentUserId)
     return $http.get("http://localhost:5000/api/users/" + _currentUserId)

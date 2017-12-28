@@ -1,15 +1,10 @@
 app.controller("navBarController", function ($scope, $state, $stateParams, userService, companyService) {
-  if (companyService.currentCompanyReturn() == 0) {
-    $scope.companyDash = true; 
-  } else {
-    $scope.companyDash = false; 
-  }
-  if (userService.currentUserReturn() == 0) {
-    $scope.userDash = true; 
-  } else {
-    $scope.userDash = false; 
-  }
+
+  $scope.userService = userService;
+  $scope.companyService = companyService;
+
   console.log($scope.companyDash);
+  
   // logout function
   $scope.logout = function(){
     if (companyService.currentCompanyReturn() == 0) {
