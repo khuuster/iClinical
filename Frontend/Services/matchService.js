@@ -12,10 +12,15 @@ app.service("matchService", function ($http) {
     return $http.get("https://api.opentrials.net/v1/search?q="+ condition + "%20age%2025&page=1&per_page=100");
   }
 
-
-  //Company searches trial by Name and returns results
-  this.getTrialsByName = function(name){
-    
+  //gets all studies
+  this.getAllStudies = function(){
+    return $http.get("http://localhost:5000/api/studies")
   }
+
+  //deletes study from user saved list
+  this.deleteUserStudy = function(id){
+    return $http.delete("http://localhost:5000/api/studies/" + id)
+  }
+ 
 })
   
