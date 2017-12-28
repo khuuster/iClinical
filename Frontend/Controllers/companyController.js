@@ -16,7 +16,7 @@ app.controller("companyController", function ($scope, $state, $stateParams, comp
   $scope.company = {};
 
 //makes company sign up form empty or edit filled out depending on if currentCompany is logged in. 
-  if (companyService.currentCompanyReturn !== 0) {
+  if (companyService.currentCompanyReturn() !== 0) {
         companyService.loadEditCompany().then(function (response) {
         $scope.company = response.data;
         console.log($scope.company)
@@ -175,7 +175,7 @@ app.controller("companyController", function ($scope, $state, $stateParams, comp
   $scope.editCompanyForm = function () {
     companyService.loadEditCompany().then(function (response) {
       $scope.company = response.data;
-      console.log($scope.company)
+      console.log($scope.company);
     })
   }
 

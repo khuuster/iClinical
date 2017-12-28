@@ -99,7 +99,6 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
     })
   }
 
-  $scope.editUserForm();
 
   //hides or unhides submit or submit edit button in user signup form
   $scope.userLoggedIn = function () {
@@ -107,6 +106,7 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
       $scope.userSubmitButton = true;
       $scope.userEditButton = false;
       $scope.userDash = false;
+      $scope.editUserForm();      
     }
     else {
       $scope.userSubmitButton = false;
