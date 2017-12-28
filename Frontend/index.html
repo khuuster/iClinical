@@ -56,9 +56,10 @@
             <ul class="nav navbar-nav navbar-right nav-items ">
               <li><a ui-sref="home">Home</a></li>
               <li ng-hide="userDash"><a ui-sref="dashboard">Dashboard</a></li>
-              <li ng-hide="companyDash"><a ui-sref="companyDashboard">Company Dashboard</a></li>
               <li ng-hide="userDash"><a ui-sref="matches">User Matched</a></li>
-              <li ng-hide="companyDash"><a ui-sref="companyMatches">Company Matched</a></li>
+              <li ng-hide="userDash"><a ui-sref="studyLocations">Study Locations</a></li>
+              <li ng-hide="companyDash"><a ui-sref="companyDashboard">Company Dashboard</a></li>
+              <li ng-hide="companyDash"><a ui-sref="companyMatches">Potential Canidates</a></li>
               <li><a ng-click="logout()">Logout</a></li>
             </ul> 
           </div>

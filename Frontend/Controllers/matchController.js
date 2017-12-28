@@ -177,6 +177,22 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
     $scope.myClass = "studies-continer animated bounce"
   }
 
+  //lists all saved studies from user
+  $scope.getSavedStudies = function(){
+    matchService.getAllStudies().then(function(response){
+      var userStudies = [];
+      for(var i = 0; i < response.data.length; i++){
+        if (userService.currentUserReturn() == response.data[i].userId){
+          userStudies.push({studyTitle: response.data[i].studyTitle, studyId: response.data[i].id})
+        }
+      }
+      $scope.savedStudies = userStudies; 
+    })
+  }
+  $scope.getSavedStudies()
 
+  //delete button for saved studies 
+  
+ 
 
 })
