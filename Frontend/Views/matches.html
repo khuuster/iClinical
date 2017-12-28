@@ -39,7 +39,7 @@
     </div>
   </div> -->
 <div class="container">
-  <div class="studies-container">
+  <div class="animated zoomIn studies-container">
     <div ng-hide="!matchesView">
       <p>
         <strong>
@@ -78,7 +78,7 @@
       </div>
       <div>
         <button class="btn btn-primary btn-block" ng-click="switchTest()">Interested</button>
-        <button class="btn btn-danger btn-block" ng-click="switchStudies()">Not Interested</button>
+        <button class="btn btn-danger btn-block" id = "notInter" ng-class="myClass" ng-click="switchStudies()">Not Interested</button>
       </div>
     </div>
     <div ng-hide="matchesView">

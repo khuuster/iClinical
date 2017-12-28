@@ -157,6 +157,7 @@ h1 {
 	width: 80%;
 	padding: 5%;
 	margin-top: 75px;
+	-webkit-animation-duration: 5s;
 }
 
 .companySignup {

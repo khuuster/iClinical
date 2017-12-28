@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="iClinical">
+
 <head>
   <meta charset="utf-8">
   <title>iClinical</title>
@@ -9,7 +10,7 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./css/styles.css">
-  
+
   <!-- Angular CDN 1.6.5 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
 
@@ -25,26 +26,33 @@
   <!-- Google Map Api -->
   <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=">
   </script> -->
-  
+
   <!-- Google Fonts API -->
   <link href="https://fonts.googleapis.com/css?family=BioRhyme+Expanded:200|Bungee|Josefin+Sans:400i|Monoton|Muli:300" rel="stylesheet">
+
+  <!-- css animate -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+
 </head>
+
 <body>
   <div class="container">
-    <body class="body"> 
+
+    <body class="body">
       <nav class="navbar bar navbar-fixed-top navbar-light" style="background-color: rgba(255, 255, 255, .95);">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>                        
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
               <img class="logo" alt="Brand" src="./css/navbar.png">
             </a>
           </div>
-          <div ng-controller="navBarController" class="collapse navbar-collapse"  >
+          <div ng-controller="navBarController" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right nav-items ">
               <li><a ui-sref="home">Home</a></li>
               <li ng-hide="userDash"><a ui-sref="dashboard">Dashboard</a></li>
@@ -57,24 +65,29 @@
         </div>
       </nav>
 
-    <div ui-view></div>
+      <div ui-view></div>
 
-    <!-- modules -->
-    <script type="text/javascript" src="./app.js"></script>
+      <script>
+      </script>
 
-    <!-- services -->
-    <script type="text/javascript" src="./Services/userService.js"></script>
-    <script type="text/javascript" src="./Services/matchService.js"></script>
-    <script type="text/javascript" src="./Services/companyService.js"></script>
-    
-    <!-- controllers -->
-    <script type="text/javascript" src="./Controllers/companyController.js"></script>
-    <script type="text/javascript" src="./Controllers/userController.js"></script>
-    <script type="text/javascript" src="./Controllers/loginController.js"></script>
-    <script type="text/javascript" src="./Controllers/matchController.js"></script>
-    <script type="text/javascript" src="./Controllers/dashboardController.js"></script>
-    <script type="text/javascript" src="./Controllers/navBarController.js"></script>
+
+      <!-- modules -->
+      <script type="text/javascript" src="./app.js"></script>
+
+      <!-- services -->
+      <script type="text/javascript" src="./Services/userService.js"></script>
+      <script type="text/javascript" src="./Services/matchService.js"></script>
+      <script type="text/javascript" src="./Services/companyService.js"></script>
+
+      <!-- controllers -->
+      <script type="text/javascript" src="./Controllers/companyController.js"></script>
+      <script type="text/javascript" src="./Controllers/userController.js"></script>
+      <script type="text/javascript" src="./Controllers/loginController.js"></script>
+      <script type="text/javascript" src="./Controllers/matchController.js"></script>
+      <script type="text/javascript" src="./Controllers/dashboardController.js"></script>
+      <script type="text/javascript" src="./Controllers/navBarController.js"></script>
 
   </div>
-</body>
+  </body>
+
 </html>

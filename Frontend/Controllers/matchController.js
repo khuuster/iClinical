@@ -164,6 +164,7 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
       $scope.matchesView = false;
     }
   }
+
   $scope.switchStudies = function () {
     $scope.studyIndex = $scope.studyIndex + 1;
     console.log($scope.studyIndex);
@@ -173,7 +174,9 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
     } else {
       $scope.matchesView = false;
     }
+    $scope.myClass = "studies-continer animated bounce"
   }
+
 
 
 })
