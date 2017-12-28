@@ -23,5 +23,7 @@ namespace iClinical.Model
     public string UserLastName {get; set;}
     public string UserEmail {get; set;}
     public string UserCity {get; set;}
+
+    
   }
 }
