@@ -98,7 +98,7 @@ label {
 .nav-items a{
 	font-family: 'Montserrat' ,sans-serif;
 	cursor: pointer;
-	color: rgb(112, 80, 80)
+	color: rgb(77, 71, 67)
 }
 
 .login-form {
@@ -220,4 +220,16 @@ label {
 .editCompany{
 	margin-right: 30px;
 	margin-bottom: 23px;
+}
+.homePage{
+	font-family: 'Dancing Script', cursive;
+	font-size: 125px;
+	color:white;
+	margin-top: 350px;
+	margin-left: 144px;
+}
+.homeDes{
+	font-family: Josefin Sans, sans-serif;
+	font-size: 26px;
+	margin-left: 12px;
 }
