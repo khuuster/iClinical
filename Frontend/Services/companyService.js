@@ -35,10 +35,12 @@ app.service("companyService", function ($http) {
   this.setCurrentCompany = function (id){
     _currentCompanyId = id;
   }
+  
   // returns logged on company' id
   this.currentCompanyReturn = function(){
     return _currentCompanyId;
   }
+
   // gets company by id
   this.getCurrentCompanyInfo = function(){
     console.log(_currentCompanyId)
