@@ -59,22 +59,13 @@
           </div>
           <div ng-controller="navBarController" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right nav-items ">
-              <li>
-                <a ui-sref="home">Home</a>
-              </li>
-              <li>
-                <a ui-sref="dashboard">Dashboard</a>
-              </li>
-              <li>
-                <a ui-sref="companyDashboard">Company Dashboard</a>
-              </li>
-              <li>
-                <a ui-sref="matches">Matched</a>
-              </li>
-              <li>
-                <a ng-click="logout()">Logout</a>
-              </li>
-            </ul>
+              <li><a ui-sref="home">Home</a></li>
+              <li ng-hide="userDash"><a ui-sref="dashboard">Dashboard</a></li>
+              <li ng-hide="companyDash"><a ui-sref="companyDashboard">Company Dashboard</a></li>
+              <li ng-hide="userDash"><a ui-sref="matches">User Matched</a></li>
+              <li ng-hide="companyDash"><a ui-sref="companyMatches">Company Matched</a></li>
+              <li><a ng-click="logout()">Logout</a></li>
+            </ul> 
           </div>
         </div>
       </nav>

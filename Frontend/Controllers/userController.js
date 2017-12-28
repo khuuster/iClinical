@@ -103,13 +103,15 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
 
   //hides or unhides submit or submit edit button in user signup form
   $scope.userLoggedIn = function () {
-    if (userService.currentUserReturn() != null) {
+    if (userService.currentUserReturn() != 0) {
       $scope.userSubmitButton = true;
       $scope.userEditButton = false;
+      $scope.userDash = false;
     }
     else {
       $scope.userSubmitButton = false;
       $scope.userEditButton = true;
+      $scope.userDash = true;
     }
   }
 
@@ -118,7 +120,10 @@ app.controller("userController", function ($scope, $state, $stateParams, userSer
 //submitEdit button
 $scope.newUserEditSubmit = function(user){
  userService.updateUser(user);
+ $state.go("userSuccessPage");
 }
+
+
 
 
 })

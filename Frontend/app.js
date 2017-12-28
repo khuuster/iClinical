@@ -53,5 +53,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: "./views/companyStudies.html",
       controller: "companyController"
     })
+    .state("companyMatches", {
+      url: "/companyMatches",
+      templateUrl: "./views/companyMatches.html",
+      controller: "companyController"
+    })
 
 })

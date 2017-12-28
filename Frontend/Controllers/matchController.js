@@ -134,18 +134,31 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
     if ($scope.studyIndex != $scope.apiResponse.length) {
       $scope.currentStudy = $scope.apiResponse[$scope.studyIndex];
       console.log($scope.currentStudy)
-      var searched = ({
-
-        studyId: $scope.currentStudy.id,
-        studyTitle: $scope.currentStudy.public_title,
-        briefSummary: $scope.currentStudy.brief_summary,
-        gender: $scope.currentStudy.gender,
-        status: $scope.currentStudy.status,
-        sampleSize: $scope.currentStudy.target_sample_size,
-        companyId: companyService.currentCompanyReturn(),
-        userId: userService.currentUserReturn()
+      userService.getAUser(userService.currentUserReturn()).then(function (response) {
+        $scope.userInfo = response;
+        var searched = ({
+          studyId: $scope.currentStudy.id,
+          studyTitle: $scope.currentStudy.public_title,
+          briefSummary: $scope.currentStudy.brief_summary,
+          gender: $scope.currentStudy.gender,
+          status: $scope.currentStudy.status,
+          sampleSize: $scope.currentStudy.target_sample_size,
+          companyId: companyService.currentCompanyReturn(),
+          userId: userService.currentUserReturn(),
+          userFirstName: $scope.userInfo.data.firstName,
+          userLastName: $scope.userInfo.data.lastName,
+          userEmail: $scope.userInfo.data.email,
+          userCity: $scope.userInfo.data.city
+        })
+        console.log($scope.userInfo.data);
+        setTimeout(function(){
+          companyService.postStudyCompany(searched);
+        }, 500)
+         
       })
-      companyService.postStudyCompany(searched);
+
+     
+
 
     } else {
       $scope.matchesView = false;

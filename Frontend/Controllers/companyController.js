@@ -1,9 +1,9 @@
 app.controller("companyController", function ($scope, $state, $stateParams, companyService, matchService, userService) {
-  if (companyService.currentCompanyReturn() == 0 && userService.currentUserReturn() == 0) {
-    $state.go("dashboard");
-  } else if (companyService.currentCompanyReturn() == 0) {
-    $state.go("home");
-  }
+  // if (companyService.currentCompanyReturn() == 0 && userService.currentUserReturn() == 0) {
+  //   $state.go("dashboard");
+  // } else if (companyService.currentCompanyReturn() == 0) {
+  //   $state.go("home");
+  // }
 
   //hides form verification upon initial page load
   $scope.companyName = true;
@@ -13,17 +13,22 @@ app.controller("companyController", function ($scope, $state, $stateParams, comp
   $scope.companyPass = true;
   $scope.companyCity = true;
   $scope.companyDescription = true;
+  $scope.company = {};
 
-  if ($stateParams.id == "" || $stateParams.id == undefined || $stateParams.id == null) {
-    companyService.getCompanyById($stateParams.id, function (company) {
-      $scope.company = company
-      console.log($scope.company)
-    })
+//makes company sign up form empty or edit filled out depending on if currentCompany is logged in. 
+  if (companyService.currentCompanyReturn == 0) {
+    // companyService.getCompanyById($stateParams.id, function (company) {
+    //   $scope.company = company
+    //   console.log($scope.company)
+    // })
   } else {
-    companyService.getCompanyById($stateParams.id, function (company) {
-      $scope.company = company
-      console.log($scope.company)
-    })
+    // companyService.getCompanyById($stateParams.id, function (company) {
+    //   $scope.company = company
+    //   console.log($scope.company)
+      companyService.loadEditCompany().then(function (response) {
+        $scope.company = response.data;
+        console.log($scope.company)
+      })
   }
 
   //submits company signup form
@@ -89,7 +94,6 @@ app.controller("companyController", function ($scope, $state, $stateParams, comp
         if (response.data[i].companyUserName == companyService.returnUsername()) {
           companyService.setCurrentCompany(response.data[i].id);
           $state.go("companyDashboard");
-          //ADD NG-HIDE AND UNHIDE COMPANY DASHBOARD ON NAVBAR HERE!!
         }
       }
     })
@@ -163,21 +167,22 @@ app.controller("companyController", function ($scope, $state, $stateParams, comp
 
   //edit company button
   $scope.editCompany = function () {
-    $state.go("companySignup")
+    $state.go("companySignup");
   }
 
   // populates edit company signup form for edit
   $scope.editCompanyForm = function () {
     companyService.loadEditCompany().then(function (response) {
       $scope.company = response.data;
+      console.log($scope.company)
     })
   }
 
-  $scope.editCompanyForm();
+
 
   //hides or unhides submit or submit edit button in company signup form
   $scope.companyLoggedIn = function () {
-    if (companyService.currentCompanyReturn() != null) {
+    if (companyService.currentCompanyReturn() != 0) {
       $scope.submit = true;
       $scope.submitEdit = false;
     }
@@ -192,5 +197,34 @@ app.controller("companyController", function ($scope, $state, $stateParams, comp
 //submitEdit button
 $scope.editCompanySubmit = function(id, company){
  companyService.updateCompany(id, company);
+ setTimeout(function () {
+    $state.go("companyDashboard");
+ },500)
 }
+
+//find all of company's studies and extract studyId
+
+$scope.findMatchedUsers = function(){
+  companyService.getAllStudies().then(function(response){
+    var listCurrentStudies = [];
+    var userWithCompanyStudies = [];
+    //get all studyID from current company
+    for(var i = 0; i < response.data.length; i++){
+      if(companyService.currentCompanyReturn() == response.data[i].companyId){
+        listCurrentStudies.push(response.data[i].studyId)
+      }
+    }
+    //finds all users by ID != 0 in all studies that matches studies in copmany list of current Studies.
+    for(var i = 0; i < listCurrentStudies.length; i++){
+      for(var j = 0; j < response.data.length; j++){
+        if(listCurrentStudies[i] == response.data[j].studyId && response.data[j].userId != 0){
+          userWithCompanyStudies.push({userName: response.data[j].userFirstName + " " + response.data[j].userLastName, email: response.data[j].userEmail, city: response.data[j].userCity, studyTitle: response.data[j].studyTitle})
+        }
+      }
+    }
+    $scope.studies = userWithCompanyStudies; 
+  })
+}
+$scope.findMatchedUsers();
+
 })
