@@ -9,8 +9,12 @@
 
   <div class="companyDashboard col-md-12">
       <h2>Companies near you running your saved studies: </h2>
-      <div class="container companyDashboard col-md-10" ng-repeat="company in companies">
-        <h3>{{company}}</h3>
+      <div class="container companyDashboard col-md-10" ng-repeat="company in userCompanies">
+        <h3>{{company.studyTitle}}</h3>
+        <h3>{{company.companyName}}</h3>
+        <h3>{{company.companyPhone}}</h3>
+        <h3>{{company.companyEmail}}</h3>
+        <h3>{{company.companyCity}}</h3>
       </div>
     </div>
 </div>
