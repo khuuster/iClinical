@@ -30,8 +30,8 @@ app.service("companyService", function ($http) {
     return $http.get("http://localhost:5000/api/companies")
   }
   
-  // login for company
-  var _currentCompanyId = 1;
+  // login for company, 0 means no one is logged in, 1+ is the index of the user logged in.
+  var _currentCompanyId = 0;
   this.setCurrentCompany = function (id){
     _currentCompanyId = id;
   }

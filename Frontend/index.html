@@ -21,12 +21,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
   <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
   <!-- bootstrap jquery for navbar  -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-  <!-- Google Map Api -->
-  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=">
-  </script> -->
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
   <!-- Google Fonts API -->
   <link href="https://fonts.googleapis.com/css?family=BioRhyme+Expanded:200|Bungee|Dancing+Script|Josefin+Sans:400i|Monoton|Montserrat|Muli:300"
     rel="stylesheet">
@@ -55,28 +50,15 @@
           </div>
           <div ng-controller="navBarController" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right nav-items ">
-              <li>
-                <a ui-sref="home">Home</a>
-              </li>
-              <li>
-                <a ui-sref="login">Login</a>
-              </li>
-              <li ng-hide="userDash">
-                <a ui-sref="dashboard">Dashboard</a>
-              </li>
-              <li ng-hide="companyDash">
-                <a ui-sref="companyDashboard">Company Dashboard</a>
-              </li>
-              <li ng-hide="userDash">
-                <a ui-sref="matches">User Matched</a>
-              </li>
-              <li ng-hide="companyDash">
-                <a ui-sref="companyMatches">Company Matched</a>
-              </li>
-              <li>
-                <a ng-click="logout()">Logout</a>
-              </li>
-            </ul>
+              <li><a ui-sref="home">Home</a></li>
+              <li><a ui-sref="login">Login</a></li>
+              <li ng-hide="userDash"><a ui-sref="dashboard">Dashboard</a></li>
+              <li ng-hide="userDash"><a ui-sref="matches">User Matched</a></li>
+              <li ng-hide="userDash"><a ui-sref="studyLocations">Study Locations</a></li>
+              <li ng-hide="companyDash"><a ui-sref="companyDashboard">Company Dashboard</a></li>
+              <li ng-hide="companyDash"><a ui-sref="companyMatches">Potential Canidates</a></li>
+              <li><a ng-click="logout()">Logout</a></li>
+            </ul> 
           </div>
         </div>
       </nav>

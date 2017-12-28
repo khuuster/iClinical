@@ -2,7 +2,6 @@ app.controller("loginController", function ($scope, $state, $stateParams, userSe
   //User login verfication
   $scope.userWrong = true;
   $scope.userLogin = function (user) {
-
     userService.getUsers()
       .then(function (response) {
         for (var i = 0; i < response.data.length; i++) {

@@ -77,7 +77,7 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
       })
     matchService.getApi($scope.conditionMatch)
       .then(function (response) {
-        console.log(response.data.items)
+        // console.log(response.data.items)
         $scope.apiResponse = response.data.items;
         // this calls the dope function to match 1-100 study results to the users profile
         $scope.matchTrimmer($scope.apiResponse)
@@ -96,7 +96,7 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
         theResults.splice(i, 1);
       }
     }
-    console.log(theResults);
+    // console.log(theResults);
     // this checks if the study matches the users gender
     for (var i = theResults.length - 1; i > 0; i--) {
       if (theResults[i].gender !== $scope.currentUser.gender.toLowerCase() && theResults[i].gender !== "both") {
@@ -104,7 +104,7 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
       }
     }
     // this checks if the users' age matches the study
-    console.log(theResults);
+    // console.log(theResults);
     for (var i = theResults.length - 1; i > 0; i--) {
       if (theResults[i].age_range !== undefined) {
         var max = theResults[i].age_range.max_age.slice(0, 2);
@@ -119,7 +119,7 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
         }
       }
     }
-    console.log(theResults);
+    // console.log(theResults);
   }
   $scope.matchingUser();
   // below is what makes studies show one by one
@@ -148,7 +148,11 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
           userFirstName: $scope.userInfo.data.firstName,
           userLastName: $scope.userInfo.data.lastName,
           userEmail: $scope.userInfo.data.email,
-          userCity: $scope.userInfo.data.city
+          userCity: $scope.userInfo.data.city,
+          companyName: "Alternative Studes INC",
+          companyPhone: "7145555555",
+          companyEmail: "ALTMEDINC@iclinical.com",
+          companyCity: "Santa Ana"
         })
         console.log($scope.userInfo.data);
         setTimeout(function(){
@@ -177,6 +181,43 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
     $scope.myClass = "studies-continer animated bounce"
   }
 
+  //lists all saved studies from user
+  $scope.getSavedStudies = function(){
+    matchService.getAllStudies().then(function(response){
+      var userStudies = [];
+      var companiesSameStudy = [];
+      for(var i = 0; i < response.data.length; i++){
+        if (userService.currentUserReturn() == response.data[i].userId){
+          userStudies.push({studyTitle: response.data[i].studyTitle, id: response.data[i].id})
+        }
+      }
+      for (var i = 0; i < userStudies.length; i++){
+        for(var j = 0; j < response.data.length; j++){
+          //<============!!!!!!!add response.data[j].companyName != null to go live !!!!!!!===================>>>>>>>>>>>>
+          if (response.data[i].studyTitle == response.data[j].studyTitle ){
+            companiesSameStudy.push({studyTitle: response.data[j].studyTitle , companyName: response.data[j].companyName , companyPhone: response.data[j].companyPhone , companyEmail: response.data[j].companyEmail , companyCity: response.data[j].companyCity})
+          }
+        }
+      }
+      $scope.savedStudies = userStudies; 
+      $scope.userCompanies = companiesSameStudy;
+    })
+  }
+  $scope.getSavedStudies()
 
+
+
+  //delete button for saved studies 
+  $scope.removeSavedStudy = function (id){
+    matchService.deleteUserStudy(id);
+    setTimeout(function(){
+      $scope.getSavedStudies();
+    } ,500 )
+  }
+ 
+  //shows all companies matched with saved studies
+  $scope.showUserCompanies = function(){
+    
+  }
 
 })

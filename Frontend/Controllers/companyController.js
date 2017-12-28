@@ -16,16 +16,8 @@ app.controller("companyController", function ($scope, $state, $stateParams, comp
   $scope.company = {};
 
 //makes company sign up form empty or edit filled out depending on if currentCompany is logged in. 
-  if (companyService.currentCompanyReturn == 0) {
-    // companyService.getCompanyById($stateParams.id, function (company) {
-    //   $scope.company = company
-    //   console.log($scope.company)
-    // })
-  } else {
-    // companyService.getCompanyById($stateParams.id, function (company) {
-    //   $scope.company = company
-    //   console.log($scope.company)
-      companyService.loadEditCompany().then(function (response) {
+  if (companyService.currentCompanyReturn !== 0) {
+        companyService.loadEditCompany().then(function (response) {
         $scope.company = response.data;
         console.log($scope.company)
       })
@@ -117,13 +109,22 @@ app.controller("companyController", function ($scope, $state, $stateParams, comp
 
   // adds selected searched item to backend. Makes new instance of study in backend with company id in it
   $scope.addStudy = function (trial) {
-    var searched = ({ studyId: trial.id, studyTitle: trial.public_title, briefSummary: trial.brief_summary, gender: trial.gender, status: trial.status, sampleSize: trial.target_sample_size, companyId: companyService.currentCompanyReturn() });
-    companyService.postStudyCompany(searched);
+    companyService.getCurrentCompanyInfo(companyService.currentCompanyReturn()).then(function(response){
+      $scope.companyInfo = response.data; 
+      // builds object with study info and company info 
+      var searched = ({ studyId: trial.id, studyTitle: trial.public_title, briefSummary: trial.brief_summary, gender: trial.gender, status: trial.status, sampleSize: trial.target_sample_size, companyId: companyService.currentCompanyReturn(), companyName: $scope.companyInfo.companyName, companyPhone: $scope.companyInfo.phone, companyEmail: $scope.companyInfo.email, companyCity: $scope.companyInfo.city});
+      //posts study object to backend
+      setTimeout(function(){
+      companyService.postStudyCompany(searched);
+    },500)
+    })
+    //removes item from searched list in company dashboard view
     for (var i = 0; i < $scope.searchedTrials.length; i++) {
       if (trial.id == $scope.searchedTrials[i].id) {
         $scope.searchedTrials.splice(i, 1);
       }
     }
+    //displays current studies added to company dashboard
     setTimeout(function () {
       $scope.getAllStudies = companyService.getAllStudies().then(function (response) {
         $scope.companyStudies = [];

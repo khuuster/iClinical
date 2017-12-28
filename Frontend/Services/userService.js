@@ -21,7 +21,7 @@ app.service("userService", function ($http) {
     return userEmail;
   }
   // current user logged in, 0 means no one is logged on
-  var _currentUserId = 2;
+  var _currentUserId = 0;
   this.setCurrentUser = function (id){
     _currentUserId = id;
   }
