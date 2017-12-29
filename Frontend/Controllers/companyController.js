@@ -16,9 +16,10 @@ app.controller("companyController", function ($scope, $state, $stateParams, comp
   // $scope.company = {};
 
 //makes company sign up form empty or edit filled out depending on if currentCompany is logged in. 
-  if (companyService.currentCompanyReturn() !== 0) {
+  if (companyService.currentCompanyReturn() != 0) {
         companyService.loadEditCompany().then(function (response) {
         $scope.company = response.data;
+        $scope.findMatchedUsers();
         console.log($scope.company)
       })
   }
@@ -131,10 +132,11 @@ app.controller("companyController", function ($scope, $state, $stateParams, comp
         for (var i = 0; i < response.data.length; i++) {
           if (companyService.currentCompanyReturn() == response.data[i].companyId) {
             $scope.companyStudies.push(response.data[i]);
+            console.log("works")
           }
         }
       })
-    }, 500);
+    }, 1000);
   }
 
   //compnay deletes studies from backend, refreshes view
@@ -224,8 +226,12 @@ $scope.findMatchedUsers = function(){
       }
     }
     $scope.studies = userWithCompanyStudies; 
+    console.log(userWithCompanyStudies)
   })
 }
+
 $scope.findMatchedUsers();
+
+
 
 })

@@ -143,7 +143,7 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
           gender: $scope.currentStudy.gender,
           status: $scope.currentStudy.status,
           sampleSize: $scope.currentStudy.target_sample_size,
-          companyId: companyService.currentCompanyReturn(),
+          companyId: 1,
           userId: userService.currentUserReturn(),
           userFirstName: $scope.userInfo.data.firstName,
           userLastName: $scope.userInfo.data.lastName,
@@ -194,7 +194,7 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
       for (var i = 0; i < userStudies.length; i++){
         for(var j = 0; j < response.data.length; j++){
           //<============!!!!!!!add response.data[j].companyName != null to go live !!!!!!!===================>>>>>>>>>>>>
-          if (response.data[i].studyTitle == response.data[j].studyTitle ){
+          if (userStudies[i].studyTitle == response.data[j].studyTitle ){
             companiesSameStudy.push({studyTitle: response.data[j].studyTitle , companyName: response.data[j].companyName , companyPhone: response.data[j].companyPhone , companyEmail: response.data[j].companyEmail , companyCity: response.data[j].companyCity})
           }
         }
