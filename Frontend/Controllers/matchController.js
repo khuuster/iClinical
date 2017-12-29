@@ -77,7 +77,7 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
       })
     matchService.getApi($scope.conditionMatch)
       .then(function (response) {
-        // console.log(response.data.items)
+        console.log(response.data.items)
         $scope.apiResponse = response.data.items;
         // this calls the dope function to match 1-100 study results to the users profile
         $scope.matchTrimmer($scope.apiResponse)

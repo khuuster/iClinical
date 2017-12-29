@@ -67,7 +67,7 @@ app.service("userService", function ($http) {
         generic: false,
         other: "none",
         obese: false,
-        sendentary: false,
+        sedentary: false,
         diet: false,
         smoker: false,
         drinker: false,
@@ -77,7 +77,7 @@ app.service("userService", function ($http) {
       callback(user)
     }
     else {
-      //$http using id to get valid user pass valid user back to controller using callback function
+      return $http.get("http://localhost:5000/api/users/" + _currentUserId);
     }
   }
 
