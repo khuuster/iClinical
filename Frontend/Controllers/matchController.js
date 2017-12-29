@@ -39,10 +39,10 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
           conds.push("congenital");
         }
         if ($scope.currentUser.ear == true) {
-          conds.push("ear%20hearing");
+          conds.push("ear");
         }
         if ($scope.currentUser.eye == true) {
-          conds.push("eye%20optical");
+          conds.push("eye");
         }
         if ($scope.currentUser.infection == true) {
           conds.push("infection");
