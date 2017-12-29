@@ -132,7 +132,6 @@ app.controller("companyController", function ($scope, $state, $stateParams, comp
         for (var i = 0; i < response.data.length; i++) {
           if (companyService.currentCompanyReturn() == response.data[i].companyId) {
             $scope.companyStudies.push(response.data[i]);
-            console.log("works")
           }
         }
       })
