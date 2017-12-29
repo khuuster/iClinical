@@ -9,7 +9,7 @@ app.service("matchService", function ($http) {
   // searches the api with input
   this.getApi = function(condition){
     console.log(condition);
-    return $http.get("https://api.opentrials.net/v1/search?q="+ condition + "%20age%2025&page=1&per_page=100");
+    return $http.get("https://api.opentrials.net/v1/search?q="+ condition + "%20age%20&page=1&per_page=100");
   }
 
   //gets all studies

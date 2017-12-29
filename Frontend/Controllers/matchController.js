@@ -1,4 +1,5 @@
 app.controller("matchController", function ($scope, $state, $stateParams, matchService, userService, companyService) {
+  $scope.conditions = [];
   // checks if user is logged on
   if (userService.currentUserReturn() == 0) {
     $state.go("home");
@@ -69,6 +70,7 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
         }
         console.log(conds)
         // this joins all the true conditions into a formatted search for the api
+        $scope.conditions = conds;
         $scope.conditionMatch = conds.join("%20");
         console.log($scope.conditionMatch);
       })
@@ -96,7 +98,7 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
         theResults.splice(i, 1);
       }
     }
-    // console.log(theResults);
+    console.log(theResults);
     // this checks if the study matches the users gender
     for (var i = theResults.length - 1; i > 0; i--) {
       if (theResults[i].gender !== $scope.currentUser.gender.toLowerCase() && theResults[i].gender !== "both") {
@@ -104,12 +106,12 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
       }
     }
     // this checks if the users' age matches the study
-    // console.log(theResults);
+    console.log(theResults);
     for (var i = theResults.length - 1; i > 0; i--) {
       if (theResults[i].age_range !== undefined) {
         var max = theResults[i].age_range.max_age.slice(0, 2);
         var min = theResults[i].age_range.min_age.slice(0, 2);
-        // console.log(min + " " + max);
+        console.log(min + " " + max);
         if ($scope.currentUser.age > min) {
           theResults.splice(i, 1);
         } else if ($scope.currentUser.age < max) {
@@ -119,7 +121,28 @@ app.controller("matchController", function ($scope, $state, $stateParams, matchS
         }
       }
     }
-    // console.log(theResults);
+    console.log(theResults);
+    // condition trimmer
+    for (var i = theResults.length - 1; i >= 0; i--){
+      console.log($scope.conditions)
+      var matches = 0;
+      var temp = theResults[i].conditions[0].name.split(" ");
+      console.log(temp);
+      for (var b = 0; b < temp.length; b++){
+        for(var c = 0; c < $scope.conditions.length; c++){
+          if(temp[b].toLowerCase() == $scope.conditions[c]){
+            matches += 1;
+          }
+        }
+      }
+      console.log(matches)
+      if (matches == 0){
+        console.log("no match")
+        theResults.splice(i,1);
+      }
+    }
+    console.log(theResults);
+    
   }
   $scope.matchingUser();
   // below is what makes studies show one by one
