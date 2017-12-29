@@ -26,11 +26,9 @@ app.controller("loginController", function ($scope, $state, $stateParams, userSe
   //Company login verification
   $scope.companyWrong = true;
   $scope.companyLogin = function (company) {
-
     companyService.getAllCompanies()
       .then(function (response) {
         for (var i = 0; i < response.data.length; i++) {
-
           if (response.data[i].email == company.email && response.data[i].companyPassword == company.password) {
             console.log("this company matches " + response.data[i].companyName);
             $scope.companyWrong = true;
