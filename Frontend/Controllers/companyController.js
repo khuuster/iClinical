@@ -205,7 +205,6 @@ $scope.editCompanySubmit = function(id, company){
 }
 
 //find all of company's studies and extract studyId
-
 $scope.findMatchedUsers = function(){
   companyService.getAllStudies().then(function(response){
     var listCurrentStudies = [];
