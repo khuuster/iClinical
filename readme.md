@@ -6,12 +6,14 @@ iClinical is a matchmaking service catered for the clinical research industry, i
 - Implementation of a worldwide clinical trial database api from Opentrials.net.
 - Utilizes ASP.NET framework for backend data handling.
 
-# Technologies Used
-	![](images/stack.png)
+# Technologies
+![](images/stack.png)
 	![](images/angularjs.jpg)
 	![](images/images.jpg)
 	![](images/c#.png)
 	![](images/bootstrap.jpg)
+
+	
 
 # Examples
   ![](images/iclinicalHome.jpg)
