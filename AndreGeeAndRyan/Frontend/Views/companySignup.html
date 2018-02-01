@@ -1,0 +1,59 @@
+<div class="signUpForm animated zoomIn">
+  <h1 class="signUpHeader" ng-hide="submit">Company Sign Up</h1>
+  <h1 class="signUpHeader" ng-hide="submitEdit">Edit Profile</h1>
+  <div class="container formContainer">
+    <div class="col-md-6">
+      <label>NAME</label>
+      <input type="text" class="form-control" ng-model="company.companyName">
+      <p class="userFormRequired" ng-hide="companyName">Required!</p>
+    </div>
+
+    <div class="col-md-6">
+      <label>USER NAME</label>
+      <input type="text" class="form-control" ng-model="company.companyUserName">
+      <p class="userFormRequired" ng-hide="companyUsername">Required!</p>
+    </div>
+
+    <div class="col-md-3">
+      <label>PHONE NUMBER</label>
+      <input type="text" class="form-control" ng-model="company.phone">
+      <p class="userFormRequired" ng-hide="companyPhone">Required!</p>
+    </div>
+
+    <div class="col-md-3">
+      <label>EMAIL</label>
+      <input type="text" class="form-control" ng-model="company.email">
+      <p class="userFormRequired" ng-hide="companyEmail">Required!</p>
+    </div>
+
+    <div class="col-md-3">
+      <label>PASSWORD</label>
+      <input type="text" class="form-control" ng-model="company.companyPassword">
+      <p class="userFormRequired" ng-hide="companyPass">Required!</p>
+    </div>
+
+
+    <div class="container formContainer">
+      <div class="col-md-3">
+        <label>CITY</label>
+        <input type="text" class="form-control" ng-model="company.city">
+        <p class="userFormRequired" ng-hide="companyCity">Required!</p>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <label>DESCRIPTION</label>
+      <input type="text" class="form-control" ng-model="company.description">
+      <p class="userFormRequired" ng-hide="companyDescription">Required!</p>
+    </div>
+
+
+    <div class="container">
+      <button class="btn btn-primary" ng-click="newCompanySubmit()" ng-hide="submit">SUBMIT</button>
+    </div>
+
+    <div class="container">
+        <button class="btn btn-primary" ng-click="editCompanySubmit(company.id, company)" ng-hide="submitEdit">SUBMIT EDIT</button>
+      </div>
+
+  </div>

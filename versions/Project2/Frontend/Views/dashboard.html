@@ -1,0 +1,27 @@
+
+<div class="container">
+
+  <div class="container dashboard-container animated pulse ">
+    <div class="dashboard-name signUpHeader">
+      <h1 class="text-center">
+        <strong>{{loadedUser.firstName}} {{loadedUser.lastName}}</strong>
+      </h1>
+      <h4 class="text-center userEmailHeading">{{loadedUser.email}}</h4>
+      <button class="btn" ng-click="editUser()">Edit</button>
+    </div>
+    <div class="row SignUpHeadings">
+      <div class="col-md-4">
+        <h4 class="text-center"><strong>Age: </strong>{{loadedUser.age}}</h4>
+      </div>
+      <div class="col-md-4">
+        <h4 class="text-center"><strong>Sex: </strong>{{loadedUser.gender}}</h4>
+      </div>
+      <div class="col-md-4">
+        <h4 class="text-center"><strong>City: </strong>{{loadedUser.city}}</h4>
+      </div>
+     
+    </div>
+    <button class="dashboard-button center-block btn btn-lg btn-info" ui-sref="matches">Find Study Matches</button>
+  </div>
+  
+</div>

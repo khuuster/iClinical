@@ -1,0 +1,235 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.loginContainer {
+	margin-top: 200px;
+	margin-bottom: 200px;
+	width: 285px;
+	height: 310px;
+	border: 1px solid gray;
+}
+
+.username {
+	margin-top: 50px;
+}
+
+.signUpForm {
+	margin-top: 70px;
+	background-color: rgba(255, 255, 255, .85);
+	padding: 40px;
+	width: 1232px;
+	border-radius: 96px;
+}
+
+.userFormRequired {
+	color: red;
+}
+
+@CHARSET "UTF-8";
+
+/*
+over-ride "Weak" message, show font in dark grey
+*/
+
+.progress-bar {
+	color: #333;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	outline: none;
+}
+
+body {
+	background: url('/css/clinicaltrial.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+label {
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	font-weight: 700;
+}
+
+form[role=login] {
+	color: #5d5d5d;
+	background: #f2f2f2;
+	padding: 26px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+form[role=login] img {
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 35px;
+}
+
+form[role=login] input,
+form[role=login] button {
+	font-size: 18px;
+	margin: 16px 0;
+}
+
+form[role=login]>div {
+	text-align: center;
+}
+
+label {
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	font-weight: 700;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.nav-items a{
+	font-family: 'Montserrat' ,sans-serif;
+	cursor: pointer;
+	color: rgb(77, 71, 67)
+}
+
+.login-form {
+	margin-top: 60px;
+}
+
+.form-links {
+	text-align: center;
+	margin-top: 1em;
+	margin-bottom: 50px;
+}
+
+.form-links a {
+	color: #fff;
+}
+
+.formContainer {
+	margin-top: 10px;
+}
+
+.signUpHeader {
+	text-align: center;
+	font-family: 'Monoton', cursive;
+}
+
+.SignUpHeadings {
+	font-family: 'Muli', sans-serif;
+}
+
+.h1,
+h1 {
+	font-size: 50px;
+
+	margin-bottom: 36px;
+}
+
+.dashboard-container {
+	border-radius: 10px;
+	background-color :rgba(255, 255, 255, .85);
+	margin-top: 75px;
+}
+
+.dashboard-name {
+	padding: 20px 0px 20px 0px;
+}
+
+.dashboard-button {
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+.studies-container {
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, .85);
+	margin-left: 10%;
+	margin-right: 10%;
+	width: 80%;
+	padding: 5%;
+	margin-top: 75px;
+}
+
+.companySignup {
+	color: rgb(75, 75, 75) !important;
+}
+
+.companyContainerView {
+	width: 90%;
+}
+
+.companyStudySidebar {
+	margin-left: 10px;
+	border-radius: 10px;
+	border: 1px solid rgb(109, 109, 109);
+	background-color: white;
+	width: 39%;
+	float: right;
+}
+
+.companyDashboard {
+	padding: 35px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	background-color:rgba(255, 255, 255, .85);
+	margin-top: 75px;
+}
+
+.searchedStudyContainer {
+	margin-top: 20px;
+	border-radius: 10px;
+	border: 1px solid rgb(109, 109, 109);
+	background-color: white;
+	padding-bottom: 10px;
+	float: left;
+}
+
+label {
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	font-weight: 700;
+}
+
+.btn {
+	margin-top: 10px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.logo {
+	width: 160px;
+	height: 145px;
+	margin-top: -20px;
+	margin-bottom: -19px;
+}
+.userEmailHeading{
+	font-family: 'Josefin Sans', sans-serif;
+
+}
+.editCompany{
+	margin-right: 30px;
+	margin-bottom: 23px;
+}
+.homePage{
+	font-family: 'Dancing Script', cursive;
+	font-size: 125px;
+	color:white;
+	margin-top: 350px;
+	margin-left: 144px;
+}
+.homeDes{
+	font-family: Josefin Sans, sans-serif;
+	font-size: 26px;
+	margin-left: 12px;
+}
