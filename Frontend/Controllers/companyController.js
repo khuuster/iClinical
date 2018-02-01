@@ -205,6 +205,7 @@ $scope.editCompanySubmit = function(id, company){
 }
 
 //find all of company's studies and extract studyId
+
 $scope.findMatchedUsers = function(){
   companyService.getAllStudies().then(function(response){
     var listCurrentStudies = [];
@@ -213,7 +214,6 @@ $scope.findMatchedUsers = function(){
     for(var i = 0; i < response.data.length; i++){
       if(companyService.currentCompanyReturn() == response.data[i].companyId){
         listCurrentStudies.push(response.data[i].studyId)
-        console.log(companyService.currentCompanyReturn(), response.data[i].companyId)
       }
     }
     //finds all users by ID != 0 in all studies that matches studies in copmany list of current Studies.

@@ -31,7 +31,7 @@ app.service("companyService", function ($http) {
   }
   
   // login for company, 0 means no one is logged in, 1+ is the index of the user logged in.
-  var _currentCompanyId = 4;
+  var _currentCompanyId = 0;
   this.setCurrentCompany = function (id){
     _currentCompanyId = id;
   }

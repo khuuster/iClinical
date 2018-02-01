@@ -67,7 +67,7 @@ namespace iClinical.Controllers
         }
 
         // PUT api/values/5
-        [HttpPut ("{id}")]  
+        [HttpPut ("{id}")]
         public User Put (int id, [FromBody] User user)
         {
 
